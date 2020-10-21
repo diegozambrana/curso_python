@@ -45,3 +45,18 @@ print(match2)
 
 lista = re.findall('mundo', texto)
 print(lista)
+
+
+import re
+
+archivo = open('data/mbox-short.txt')
+#Sat, 05 Jan 2008 09:14:16
+regex = '([\w]{3}),\s[\d]{2}\s[\w]{3}\s[\d]{4}\s(\d{2}:\d{2}:\d{2})'
+
+for linea in archivo:
+    linea = linea.rstrip()
+    match = re.search(regex, linea)
+    if match is not None:
+        print(match.group())
+        print(match.group(1))
+        print(match.group(2))
